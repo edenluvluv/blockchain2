@@ -1,24 +1,38 @@
 //main.rs
 mod lib;
+use std::io;
 
 fn main() {
-    let mut arr1 = [6,8,1,4,2,5];
-    println!("Original array: {:?}", arr1);
-    lib::merge_sort(&mut arr1);
-    println!("Merge sorted array: {:?}", arr1);
+    let mut input = String::new();
 
-    let mut arr2 = [6,8,1,4,2,5];
-    println!("Original array: {:?}", arr2);
-    lib::insertion_sort(&mut arr2);
-    println!("Insertion sorted array: {:?}", arr2);
+    println!("Enter space-separated integers:");
+    io::stdin().read_line(&mut input)
+        .expect("Failed to read line");
 
-    let mut arr3 = [6,8,1,4,2,5];
-    println!("Original array: {:?}", arr3);
-    lib::quick_sort(&mut arr3);
-    println!("Quick sorted array: {:?}", arr3);
+    let mut arr: Vec<i32> = input.trim().split_whitespace()
+        .map(|x| x.parse().expect("Failed to parse integer"))
+        .collect();
 
-    let mut arr4 = [6,8,1,4,2,5];
-    println!("Original array: {:?}", arr4);
-    lib::selection_sort(&mut arr4);
-    println!("Selection sorted array: {:?}", arr4);
+    println!("Original array: {:?}", arr);
+
+    // Merge Sort
+    let mut merge_sorted_arr = arr.clone();
+    lib::merge_sort(&mut merge_sorted_arr);
+    println!("Merge sorted array: {:?}", merge_sorted_arr);
+
+    // Insertion Sort
+    let mut insertion_sorted_arr = arr.clone();
+    lib::insertion_sort(&mut insertion_sorted_arr);
+    println!("Insertion sorted array: {:?}", insertion_sorted_arr);
+
+    // Quick Sort
+    let mut quick_sorted_arr = arr.clone();
+    lib::quick_sort(&mut quick_sorted_arr);
+    println!("Quick sorted array: {:?}", quick_sorted_arr);
+
+    // Selection Sort
+    let mut selection_sorted_arr = arr.clone();
+    lib::selection_sort(&mut selection_sorted_arr);
+    println!("Selection sorted array: {:?}", selection_sorted_arr);
 }
+
