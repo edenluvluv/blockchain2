@@ -35,15 +35,15 @@ use std::io;
 fn main() {
     let mut input = String::new();
 
-    println!("Enter space-separated integers:");
+    println!("Enter space-separated numbers:");
     io::stdin().read_line(&mut input)
-        .expect("Failed to read line");
+        .expect("Failed");
 
     let mut arr: Vec<i32> = input.trim().split_whitespace()
-        .map(|x| x.parse().expect("Failed to parse integer"))
+        .map(|x| x.parse().expect("Failed"))
         .collect();
 
-    println!("Original array: {:?}", arr);
+    println!("Your array: {:?}", arr);
 
     // Merge Sort
     let mut merge_sorted_arr = arr.clone();
@@ -65,5 +65,7 @@ fn main() {
     lib::selection_sort(&mut selection_sorted_arr);
     println!("Selection sorted array: {:?}", selection_sorted_arr);
 }
+
+
 ```
 Here is provided example code of using it in main.rs where user can input numbers in terminal and see a result.
