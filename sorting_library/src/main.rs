@@ -13,7 +13,7 @@ fn main() {
         .map(|x| x.parse().expect("Failed"))
         .collect();
 
-    println!("Original array: {:?}", arr);
+    println!("Your array: {:?}", arr);
 
     // Merge Sort
     let mut merge_sorted_arr = arr.clone();
