@@ -5,12 +5,12 @@ use std::io;
 fn main() {
     let mut input = String::new();
 
-    println!("Enter space-separated integers:");
+    println!("Enter space-separated numbers:");
     io::stdin().read_line(&mut input)
-        .expect("Failed to read line");
+        .expect("Failed");
 
     let mut arr: Vec<i32> = input.trim().split_whitespace()
-        .map(|x| x.parse().expect("Failed to parse integer"))
+        .map(|x| x.parse().expect("Failed"))
         .collect();
 
     println!("Original array: {:?}", arr);
