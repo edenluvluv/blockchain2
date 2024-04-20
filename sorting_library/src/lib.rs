@@ -50,14 +50,14 @@ pub fn insertion_sort<T: Ord>(arr: &mut [T]) {
 pub fn selection_sort<T: Ord>(arr: &mut [T]) {
     let len = arr.len();
     for i in 0..len {
-        let mut min_index = i;
+        let mut min_ind = i;
         for j in i + 1..len {
-            if arr[j] < arr[min_index] {
-                min_index = j;
+            if arr[j] < arr[min_ind] {
+                min_ind = j;
             }
         }
-        if i != min_index {
-            arr.swap(i, min_index);
+        if i != min_ind {
+            arr.swap(i, min_ind);
         }
     }
 }
@@ -67,15 +67,15 @@ pub fn quick_sort<T: Ord>(arr: &mut [T]) {
         return;
     }
 
-    let pivot_index = partition(arr);
-    quick_sort(&mut arr[..pivot_index]);
-    quick_sort(&mut arr[pivot_index + 1..]);
+    let pivot_ind = partition(arr);
+    quick_sort(&mut arr[..pivot_ind]);
+    quick_sort(&mut arr[pivot_ind + 1..]);
 }
 
 fn partition<T: Ord>(arr: &mut [T]) -> usize {
     let len = arr.len();
-    let pivot_index = len / 2;
-    arr.swap(pivot_index, len - 1);
+    let pivot_ind = len / 2;
+    arr.swap(pivot_ind, len - 1);
 
     let mut i = 0;
     for j in 0..len - 1 {
